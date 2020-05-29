@@ -8,26 +8,32 @@
 
 -->
 
-<div>
-    <div>Sample Page</div>
-    <div>
-        <div>
-            <div>Menu</div>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+<!--
+  input--text: Assume that input--text extends a .input class so no need for .input class to be added.
+  button--add: Assume that button--add extends a .button class so no need for .button class to be added.
+  button--remove: Assume that button--add extends a .button class so no need for .button class to be added.
+-->
+
+<div class="page">
+    <div class="page__title">Sample Page</div>
+    <div class="page__wrapper">
+        <div class="section menu">
+            <div class="menu__title">Menu</div>
+            <ul class="menu__list">
+                <li class="menu__list__item">Item 1</li>
+                <li class="menu__list__item">Item 2</li>
+                <li class="menu__list__item">Item 3</li>
             </ul>
         </div>
-        <div>
-            <div>Main section</div>
-            <div>
-                <input type="text"/>
-                <button>Add to do</button>
-                <ul>
-                    <li>Todo 1 <button>Remove</button></li>
-                    <li>Todo 2 <button>Remove</button></li>
-                    <li>Todo 3 <button>Remove</button></li>
+        <div class="section content">
+            <div class="content__title">Main section</div>
+            <div class="content__wrapper">
+                <input class="input--text" type="text"/>
+                <button class="button--add">Add to do</button>
+                <ul class="content__list">
+                    <li class="content__list__item">Todo 1 <button class="button--remove">Remove</button></li>
+                    <li class="content__list__item">Todo 2 <button class="button--remove">Remove</button></li>
+                    <li class="content__list__item">Todo 3 <button class="button--remove">Remove</button></li>
                 </ul>
             </div>
         </div>

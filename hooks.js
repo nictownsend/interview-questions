@@ -3,6 +3,18 @@
  * And what will the last rendered HTML snippet be?
  */
 
+ /**
+  * Console output:
+  * =========================
+  * Mounted component
+  * Counter is 4
+  * Exiting
+  *
+  * Last rendered HTML:
+  * =========================
+  * <div>5</div>
+  */
+
 import { useEffect } from "react";
 
 const switcher = (props) => {
@@ -13,7 +25,7 @@ const switcher = (props) => {
         console.log('Mounted component');
         const counter = setInterval(() => {
             if(counter % 2 === 0) {
-                console.log(`Counter is ${counter}`); 
+                console.log(`Counter is ${counter}`);
             }
             setCounter(counter + 1);
         }, 1000);
