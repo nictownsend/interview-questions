@@ -1,35 +1,240 @@
 <!--
-
+    Requirements:
     This is a two section page. A menu on the left side, and main content.
     The main content is a todo list, where you can add and remove new todo items.
 
     Please add class attributes showing how you would apply the BEM CSS methodology
     to style the page.
 
+    
+    SOLUTION:
+    I updated some "div" tags to have html page. I replaced them with "html", "title" and "body"
+    and used BEM CSS methodology to define style for other divs. I used the syntax of
+    block__element--modifier for defining css style for a particular div.
+
+    The code can also be seen at https://codepen.io/marekdano/pen/xxwvddP
 -->
 
-<div>
-    <div>Sample Page</div>
-    <div>
-        <div>
-            <div>Menu</div>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        font-family: sans-serif;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .navbar {
+        padding: 30px; 
+        background-color: blue;
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        color: #e5e5e5;
+        background-color: #866ec7;
+    }
+
+    .navbar__title {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: 2px;
+    }
+
+    .navbar__item {
+        margin: 8px 0;
+        padding: 4px;
+        cursor: pointer;
+    }
+
+    .navbar__item:hover {
+        color: #fff;
+    }
+
+    .navbar__item--active {
+        color: #fff;
+        border: 1px solid
+    }
+
+    .main {
+        margin: 0 auto;
+    }
+
+    .main__title {
+        margin: 1.5rem 0;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .main__section input {
+        margin-bottom: 1rem;  
+    }
+
+    .main__section button#btn-submit:disabled {
+        color: grey;
+    }
+
+    .main__section-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 5px;
+    }
+
+    .main__section-item--important {
+        font-style: italic;
+    }
+</style>
+
+<html>
+    <header>
+        <title>Sample Page</title>
+    </header>
+    <body>
+        <div class="navbar">
+            <div class="navbar__title">Menu</div>
             <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+                <li class="navbar__item navbar__item--active">Item 1</li>
+                <li class="navbar__item">Item 2</li>
+                <li class="navbar__item">Item 3</li>
             </ul>
         </div>
-        <div>
-            <div>Main section</div>
-            <div>
+        <div class="main">
+            <div class="main__title">Main section</div>
+            <div class="main__section">
                 <input type="text"/>
-                <button>Add to do</button>
+                <button id="btn-submit" type="submit" disabled>Add to do</button>
                 <ul>
-                    <li>Todo 1 <button>Remove</button></li>
-                    <li>Todo 2 <button>Remove</button></li>
-                    <li>Todo 3 <button>Remove</button></li>
+                    <li class="main__section-item main__section-item--important">
+                        Todo 1 
+                        <button>Remove</button>
+                    </li>
+                    <li class="main__section-item">Todo 2 <button>Remove</button></li>
+                    <li class="main__section-item">Todo 3 <button>Remove</button></li>
                 </ul>
             </div>
         </div>
-    </div>
-</div>
+    </body>
+</html>
+
+
+<!--
+    If I have a chance to work on this type of page definition, I'd rather to replace div tags 
+    with semantic HTML tags. It'd be better for SEO (search engines) and the screen readers. 
+    So I'd replace div tags with nav, main, section, h1 and h2 tags and define css styles respectively.
+
+    Please see my suggested code below. The code can also be seen on https://codepen.io/marekdano/pen/vYNoxEg
+-->
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        font-family: sans-serif;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    nav {
+        padding: 30px; 
+        background-color: blue;
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        color: #e5e5e5;
+        background-color: #866ec7;
+    }
+
+    nav h2 {
+        margin-bottom: 10px
+    }
+
+    nav li {
+        margin: 8px 0;
+        padding: 4px;
+        cursor: pointer;
+    }
+
+    nav li:hover {
+        color: #fff;
+    }
+
+    nav li.active {
+        color: #fff;
+        border: 1px solid
+    }
+
+    main {
+        margin: 0 auto;
+    }
+
+    main h1 {
+        margin: 1.5rem 0;
+    }
+
+    section input {
+        margin-bottom: 1rem;  
+    }
+
+    section button#btn-submit:disabled {
+        color: grey;
+    }
+
+    section li {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 5px;
+    }
+
+    section li.important {
+        font-style: italic;
+    }
+</style>
+
+<html>
+    <header>
+        <title>Sample Page</title>
+    </header>
+    <body>
+        <nav>
+            <h2>Menu</h2>
+            <ul>
+                <li class="active">Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Main section</h1>
+            <section>
+                <input type="text"/>
+                <button id="btn-submit" type="submit" disabled>Add to do</button>
+                <ul>
+                    <li class="important">Todo 1 <button>Remove</button></li>
+                    <li>Todo 2 <button>Remove</button></li>
+                    <li>Todo 3 <button>Remove</button></li>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>
